@@ -1,0 +1,19 @@
+: 1
+name: roguey
+version: 0.1.0-a.0.z
+language: c++
+project: roguey-build2
+summary: roguey C++ executable
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://example.org/roguey-build2
+email: 142265+Klaim@users.noreply.github.com
+#build-error-email: 142265+Klaim@users.noreply.github.com
+depends: * build2 >= 0.17.0
+depends: * bpkg >= 0.17.0
+#depends: libhello ^1.0.0
+
+
+depends: lua
+depends: sol2
+# depends: curses

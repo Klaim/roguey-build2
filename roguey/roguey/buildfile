@@ -1,0 +1,7 @@
+libs =
+import libs += lua%liba{lua} sol2%liba{sol2}
+
+exe{roguey}: {hxx ixx txx cxx}{**} scripts/file{**} $libs testscript
+
+cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_base/include"
+
