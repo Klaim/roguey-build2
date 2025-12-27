@@ -14,19 +14,13 @@ run{setup-clang}:
   bdep init -C builds/clang @clang cc config.cxx=clang++
 }}
 
-run{setup-gcc}:
-{{
-  diag roguey-setup-clang $>
-  bdep init -C builds/gcc @gcc cc config.cxx=g++
-}}
-
 run{nuke}:
 {{
   rm -rf builds/ .bdep/ install/
 }}
 
 
-run{install}:
+run{install}: run{setup-clang}
 {{
   diag roguey-install $>
   $build.path install: $src_root/roguey/ "config.install.root=$src_root/install" config.install.relocatable=true
