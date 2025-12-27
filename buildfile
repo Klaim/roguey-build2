@@ -4,3 +4,31 @@ import pkgs = [dir_paths] $process.run_regex(\
   cat $src_root/packages.manifest, '\s*location\s*:\s*(\S+)\s*', '\1')
 
 ./: $pkgs
+
+
+define run: alias
+
+run{setup-clang}:
+{{
+  diag roguey-setup-clang $>
+  bdep init -C builds/clang @clang cc config.cxx=clang++
+}}
+
+run{setup-gcc}:
+{{
+  diag roguey-setup-clang $>
+  bdep init -C builds/gcc @gcc cc config.cxx=g++
+}}
+
+run{nuke}:
+{{
+  rm -rf builds/ .bdep/ install/
+}}
+
+
+run{install}:
+{{
+  diag roguey-install $>
+  $build.path install: $src_root/roguey/ "config.install.root=$src_root/install" config.install.relocatable=true
+#   ln -s ./install/bin/roguey ./run-roguey
+}}
