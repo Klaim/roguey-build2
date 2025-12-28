@@ -18,8 +18,14 @@ run{init-clang}:
 
 run{init-gcc}:
 {{
-  diag roguey-setup-clang $>
+  diag roguey-setup-gcc $>
   bdep init -C builds/gcc @gcc cc config.cxx=g++ $install_options
+}}
+
+run{init-msvc}:
+{{
+  diag roguey-setup-msvc $>
+  bdep init -C builds/msvc @msvc cc config.cxx=cl $install_options
 }}
 
 run{nuke}:

@@ -16,5 +16,6 @@ depends: * bpkg >= 0.17.0
 
 depends: lua
 depends: sol2
+depends: libftxui
 # depends: curses
-# depends: sys:curses ? ($cxx.target.system != "windows") 
+# depends: sys:curses ? ($cxx.target.system != "windows")

@@ -1,5 +1,6 @@
 libs =
 import libs += lua%liba{lua} sol2%liba{sol2}
+import libs += libftxui%liba{ftxui-screen ftxui-dom ftxui-component}
 
 exe{roguey}: {hxx ixx txx cxx}{**} file{scripts/**} $libs testscript
 # exe{roguey}: curses%lib{curses} : include = ($cxx.target.system != "windows")
@@ -11,7 +12,7 @@ if($cxx.target.system != "windows")
 	cxx.libs += -lpthread -lncurses -lm
 }
 
-file{scripts/**} : 
+file{scripts/**} :
 {
 	install = bin/scripts/
 	install.subdirs = true
