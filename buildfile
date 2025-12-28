@@ -8,10 +8,18 @@ import pkgs = [dir_paths] $process.run_regex(\
 
 define run: alias
 
-run{setup-clang}:
+install_options = "config.install.root=$src_root/install" config.install.relocatable=true
+
+run{init-clang}:
 {{
   diag roguey-setup-clang $>
-  bdep init -C builds/clang @clang cc config.cxx=clang++
+  bdep init -C builds/clang @clang cc config.cxx=clang++ $install_options
+}}
+
+run{init-gcc}:
+{{
+  diag roguey-setup-clang $>
+  bdep init -C builds/gcc @gcc cc config.cxx=g++ $install_options
 }}
 
 run{nuke}:
@@ -19,10 +27,3 @@ run{nuke}:
   rm -rf builds/ .bdep/ install/
 }}
 
-
-run{install}: run{setup-clang}
-{{
-  diag roguey-install $>
-  $build.path install: $src_root/roguey/ "config.install.root=$src_root/install" config.install.relocatable=true
-#   ln -s ./install/bin/roguey ./run-roguey
-}}

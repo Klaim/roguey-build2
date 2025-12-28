@@ -6,7 +6,8 @@ Requires:
 
 Easy way to play:
 ```
-b run{install}
+b run{setup-clang}  # or b run{setup-gcc}
+b install
 ./install/bin/roguey
 ```
 
