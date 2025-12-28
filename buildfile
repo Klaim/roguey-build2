@@ -9,23 +9,25 @@ import pkgs = [dir_paths] $process.run_regex(\
 define run: alias
 
 install_options = "config.install.root=$src_root/install" config.install.relocatable=true
+other_options = "config.cc.compiledb=./"
+config_options = $install_options $other_options
 
 run{init-clang}:
 {{
   diag roguey-setup-clang $>
-  bdep init -C builds/clang @clang cc config.cxx=clang++ $install_options
+  bdep init -C builds/clang @clang cc config.cxx=clang++ $config_options
 }}
 
 run{init-gcc}:
 {{
   diag roguey-setup-gcc $>
-  bdep init -C builds/gcc @gcc cc config.cxx=g++ $install_options
+  bdep init -C builds/gcc @gcc cc config.cxx=g++ $config_options
 }}
 
 run{init-msvc}:
 {{
   diag roguey-setup-msvc $>
-  bdep init -C builds/msvc @msvc cc config.cxx=cl $install_options
+  bdep init -C builds/msvc @msvc cc config.cxx=cl $config_options
 }}
 
 run{nuke}:
