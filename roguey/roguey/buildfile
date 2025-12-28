@@ -6,7 +6,7 @@ exe{roguey}: {hxx ixx txx cxx}{**} file{scripts/**} $libs testscript
 
 cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_base/include"
 
-if($cxx.target.system != "windows")
+if($cxx.target.system != 'win32-msvc')
 {
     cxx.libs += -lpthread -lncurses -lm
 }
