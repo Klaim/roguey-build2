@@ -1,0 +1,5 @@
+
+
+config.cc.coptions += -fPIC -fvisibility=hidden
+
+config.cxx.std = 23
