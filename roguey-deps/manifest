@@ -1,9 +1,10 @@
 : 1
-name: roguey
+name: roguey-deps
 version: 0.1.0-a.0.z
+type: lib
 language: c++
 project: roguey-build2
-summary: roguey C++ executable
+summary: roguey-deps C++ library
 license: other: proprietary ; Not free/open source.
 description-file: README.md
 url: https://example.org/roguey-build2
@@ -13,4 +14,6 @@ depends: * build2 >= 0.17.0
 depends: * bpkg >= 0.17.0
 #depends: libhello ^1.0.0
 
-depends: roguey-deps == $
+depends: lua
+# depends: sol2
+depends: libftxui

@@ -1,6 +1,5 @@
 libs =
-import libs += lua%liba{lua} sol2%liba{sol2}
-import libs += libftxui%liba{ftxui-screen ftxui-dom ftxui-component}
+import libs += roguey-deps%liba{roguey-deps}
 
 exe{roguey}: {hxx ixx txx cxx mxx}{**} file{scripts/**} $libs testscript
 

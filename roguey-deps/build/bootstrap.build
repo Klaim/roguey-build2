@@ -1,0 +1,7 @@
+project = roguey-deps
+
+using version
+using config
+using test
+using install
+using dist

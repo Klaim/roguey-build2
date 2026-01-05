@@ -21,3 +21,4 @@
 roguey/roguey/include symlink=dir
 roguey/roguey/scripts symlink=dir
 roguey/roguey/src symlink=dir
+roguey/roguey-deps/sol symlink=dir

@@ -1,0 +1,41 @@
+intf_libs = # Interface dependencies.
+impl_libs = # Implementation dependencies.
+#import xxxx_libs += libhello%lib{hello}
+import intf_libs += lua%liba{lua} # sol2%lib{sol2}
+import intf_libs += libftxui%liba{ftxui-screen ftxui-dom ftxui-component}
+
+liba{roguey-deps}: {hxx ixx txx cxx mxx}{** -version} mxx{version} $impl_libs $intf_libs
+
+mxx{version}: in{version} $src_root/manifest
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_base"
+
+obja{*}: cxx.poptions += -DROGUEY_DEPS_STATIC_BUILD
+
+# Export options.
+#
+liba{roguey-deps}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.libs = $intf_libs
+}
+
+# For pre-releases use the complete version to make sure they cannot
+# be used in place of another pre-release or the final version. See
+# the version module for details on the version.* variable values.
+#
+if $version.pre_release
+  liba{roguey-deps}: bin.lib.version = "-$version.project_id"
+else
+  liba{roguey-deps}: bin.lib.version = "-$version.major.$version.minor"
+
+# Install into the roguey-deps/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx ixx txx mxx}{*}:
+{
+  install         = include/roguey-deps/
+  install.subdirs = true
+}

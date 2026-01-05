@@ -1,0 +1,37 @@
+export module roguey.deps:version;
+
+// The numeric version format is AAAAABBBBBCCCCCDDDE where:
+//
+// AAAAA - major version number
+// BBBBB - minor version number
+// CCCCC - bugfix version number
+// DDD   - alpha / beta (DDD + 500) version number
+// E     - final (0) / snapshot (1)
+//
+// When DDDE is not 0, 1 is subtracted from AAAAABBBBBCCCCC. For example:
+//
+// Version      AAAAABBBBBCCCCCDDDE
+//
+// 0.1.0        0000000001000000000
+// 0.1.2        0000000001000020000
+// 1.2.3        0000100002000030000
+// 2.2.0-a.1    0000200001999990010
+// 3.0.0-b.2    0000299999999995020
+// 2.2.0-a.1.z  0000200001999990011
+//
+export namespace roguey
+{
+constexpr auto ROGUEY_DEPS_VERSION =       $roguey_deps.version.project_number$ULL;
+constexpr auto ROGUEY_DEPS_VERSION_STR =   "$roguey_deps.version.project$";
+constexpr auto ROGUEY_DEPS_VERSION_ID =    "$roguey_deps.version.project_id$";
+constexpr auto ROGUEY_DEPS_VERSION_FULL =  "$roguey_deps.version$";
+
+constexpr auto ROGUEY_DEPS_VERSION_MAJOR = $roguey_deps.version.major$;
+constexpr auto ROGUEY_DEPS_VERSION_MINOR = $roguey_deps.version.minor$;
+constexpr auto ROGUEY_DEPS_VERSION_PATCH = $roguey_deps.version.patch$;
+
+constexpr auto ROGUEY_DEPS_PRE_RELEASE =   $roguey_deps.version.pre_release$;
+
+constexpr auto ROGUEY_DEPS_SNAPSHOT_SN =   $roguey_deps.version.snapshot_sn$ULL;
+constexpr auto ROGUEY_DEPS_SNAPSHOT_ID =   "$roguey_deps.version.snapshot_id$";
+}

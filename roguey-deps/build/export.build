@@ -1,0 +1,6 @@
+$out_root/
+{
+  include roguey-deps/
+}
+
+export $out_root/roguey-deps/$import.target

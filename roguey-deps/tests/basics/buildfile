@@ -1,0 +1,3 @@
+import libs = roguey-deps%liba{roguey-deps}
+
+exe{driver}: {hxx ixx txx cxx mxx}{**} $libs testscript{**}

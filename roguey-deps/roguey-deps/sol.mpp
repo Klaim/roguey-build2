@@ -1,0 +1,20 @@
+module;
+#include <sol/sol.hpp>
+
+export module roguey.deps.sol;
+
+export import std;
+
+export namespace sol
+{
+    using ::sol::state;
+    using ::sol::table;
+    using ::sol::error;
+    using ::sol::protected_function;
+    using ::sol::optional;
+    using ::sol::overload;
+    using ::sol::state;
+    using ::sol::in_place;
+    using ::sol::lib;
+    using ::sol::script_pass_on_error;
+}

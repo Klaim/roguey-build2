@@ -1,0 +1,40 @@
+module;
+#include <ftxui/component/event.hpp>
+#include <ftxui/component/component.hpp>
+#include <ftxui/dom/elements.hpp>
+#include <ftxui/screen/color.hpp>
+
+export module roguey.deps.ftxui;
+
+export import std;
+
+export namespace ftxui
+{
+    using ::ftxui::Element;
+    using ::ftxui::Event;
+    using ::ftxui::Color;
+    using ::ftxui::color;
+    using ::ftxui::bgcolor;
+    using ::ftxui::text;
+    using ::ftxui::ScreenInteractive;
+    using ::ftxui::Renderer;
+    using ::ftxui::CatchEvent;
+    using ::ftxui::Decorator;
+
+    using ::ftxui::operator|;
+    using ::ftxui::operator|=;
+
+    using ::ftxui::flex;
+    using ::ftxui::center;
+    using ::ftxui::vbox;
+    using ::ftxui::hbox;
+    using ::ftxui::separator;
+    using ::ftxui::filler;
+    using ::ftxui::Elements;
+
+    namespace Terminal
+    {
+        using ::ftxui::Terminal::ColorSupport;
+        using ::ftxui::Terminal::Size;
+    }
+}
