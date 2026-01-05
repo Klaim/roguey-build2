@@ -2,7 +2,7 @@ libs =
 import libs += lua%liba{lua} sol2%liba{sol2}
 import libs += libftxui%liba{ftxui-screen ftxui-dom ftxui-component}
 
-exe{roguey}: {hxx ixx txx cxx}{**} file{scripts/**} $libs testscript
+exe{roguey}: {hxx ixx txx cxx mxx}{**} file{scripts/**} $libs testscript
 
 cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_base/include"
 
